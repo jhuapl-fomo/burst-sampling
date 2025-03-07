@@ -1,0 +1,35 @@
+[general]
+seed = 42
+model = "distilgpt2"
+
+[sampling]
+datasets = ["arxiv","gutenberg","stackexchange","news","openwebtext","twitter","wikipedia"]
+arxiv_path = "burst-sampling/data"
+output_folder = "burst-sampling/data"
+num_sampled = [10000, 10000, 10000, 10000, 10000, 10000, 10000]
+
+[featurization]
+input_path = "burst-sampling/data/dataset"
+output_path = "burst-sampling/data/token"
+
+[detectors]
+input_path = "burst-sampling/data/test"
+output_path = "burst-sampling/data/results"
+stride = 512
+detectors = ["detectgpt"]
+thresholding = ["burst", "entropy", "gltr", "ll", "log_rank", "rank", "perplexity"]
+[detectors.supervised]
+model = "roberta-base-openai-detector"
+finetune = true 
+epochs = 3
+batch_size = 1
+[detectors.detectgpt]
+random_fills = false
+random_fills_tokens = false 
+pct_words_masked = 0.3
+buffer_size = 1
+mask_top_p = 1
+chunk_size = 20
+n_perturbation_rounds = 1
+span_length = 2
+mask_model = "t5-large"
