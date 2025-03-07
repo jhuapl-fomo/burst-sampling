@@ -3,10 +3,10 @@
 Code related to [To Burst or Not to Burst: Generating and Quantifying Improbable Text](https://arxiv.org/pdf/2401.15476)
 
 **Authors**:
-- Kuleen Sasse
-- Ted Staley
-- Efsun Kayi
-- Samuel Barham
+- Kuleen Sasse (JHU, JHU/APL)
+- Ted Staley (JHU/APL, JHU)
+- Efsun Kayi (JHU/APL)
+- Samuel Barham (JHU/APL, JHU)
 
 ## Background
 
